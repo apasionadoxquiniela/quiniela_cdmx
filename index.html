@@ -3,45 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiniela CDMX | Victoria Segura</title>
+    <title>Quiniela CDMX | Pronósticos Deportivos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app-wrapper">
-        <!-- Banner de Identidad -->
+        <!-- Logo de Cabecera -->
         <header class="hero-banner">
             <img src="banner_horizontal.png" alt="Quiniela CDMX">
         </header>
 
-        <!-- Simulador de Ganancias -->
-        <section class="simulator-container">
+        <!-- Sección de Control y Simulador -->
+        <section class="info-panel">
             <div class="sim-card">
-                <h3>SIMULADOR DE VICTORIA</h3>
-                <div class="sim-body">
-                    <input type="number" id="monto-apuesta" placeholder="¿Cuanto juegas? ($)">
-                    <div id="val-ganancia" class="ganancia-text">Ganas: $0.00</div>
+                <h3>SIMULADOR DE GANANCIA</h3>
+                <div class="sim-row">
+                    <input type="number" id="monto-apuesta" placeholder="¿Cuánto apuestas? ($)">
+                    <div id="val-ganancia">Ganas: $0.00</div>
                 </div>
+            </div>
+            
+            <div class="league-selector-area">
+                <label for="selector-liga">SELECCIONA TU LIGA:</label>
+                <select id="selector-liga" onchange="cargarJornada()">
+                    <option value="liga_mx">MEXICO - LIGA MX</option>
+                    <option value="premier">INGLATERRA - PREMIER LEAGUE</option>
+                    <option value="laliga">ESPANA - LA LIGA</option>
+                </select>
             </div>
         </section>
 
-        <!-- Selector de Ligas -->
-        <div class="league-nav">
-            <select id="selector-liga" onchange="cargarJornada()">
-                <option value="liga_mx">LIGA MX - MEXICO</option>
-                <option value="premier">PREMIER LEAGUE - INGLATERRA</option>
-                <option value="laliga">LA LIGA - ESPANA</option>
-            </select>
-        </div>
-
-        <!-- Contenedor Dinamico de Partidos -->
+        <!-- Tablero de Pronósticos -->
         <main id="jornada-container">
-            <!-- Aqui se cargan los partidos desde logic.js -->
+            <!-- Aquí aparecen los partidos con botones L-E-V -->
         </main>
 
-        <!-- Boton Flotante de Registro -->
+        <!-- Botón de Registro y Pago -->
         <footer class="payment-footer">
             <button onclick="iniciarProcesoPago()" class="btn-main-pay">
-                REGISTRAR Y PAGAR
+                REGISTRAR QUINIELA Y PAGAR
             </button>
         </footer>
     </div>
