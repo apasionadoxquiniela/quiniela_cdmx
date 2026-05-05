@@ -3,39 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiniela CDMX | Multi-Liga</title>
+    <title>Quiniela CDMX | Multi-Liga Elite</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app-wrapper">
+        <!-- Banner de Identidad Visual -->
         <header class="hero-banner">
-            <img src="banner_horizontal.png" alt="Banner Quiniela">
+            <img src="banner_horizontal.png" alt="Quiniela CDMX">
         </header>
 
+        <!-- Selectores de Liga y Jornada -->
         <section class="selectors-container">
             <div class="field">
-                <label>ELIGE LIGA:</label>
+                <label>ELIGE TU LIGA:</label>
                 <select id="selector-liga" onchange="cargarJornada()">
-                    <option value="liga_mx">LIGA MX 🇲🇽</option>
-                    <option value="premier">PREMIER LEAGUE 🏴󠁧󠁢󠁥󠁮󠁧󠁿</option>
-                    <option value="laliga">LA LIGA 🇪🇸</option>
+                    <option value="liga_mx">LIGA MX - MEXICO</option>
+                    <option value="premier">PREMIER LEAGUE - INGLATERRA</option>
+                    <option value="laliga">LA LIGA - ESPANA</option>
                 </select>
             </div>
             <div class="field">
-                <label>JORNADA:</label>
+                <label>TIPO DE JORNADA:</label>
                 <select id="selector-tipo" onchange="cargarJornada()">
-                    <option value="media_semana">MEDIA SEMANA (9+1)</option>
-                    <option value="fin_semana">FIN DE SEMANA</option>
+                    <option value="media_semana">MEDIA SEMANA (9 PARTIDOS + 1)</option>
+                    <option value="fin_semana">FIN DE SEMANA (COMPLETA)</option>
                 </select>
             </div>
         </section>
 
+        <!-- Contenedor Dinámico de Partidos -->
         <main id="jornada-container"></main>
 
+        <!-- Botonera de Acción Flotante -->
         <footer class="payment-footer">
-            <button onclick="iniciarProcesoPago()" class="btn-main-pay">REGISTRAR Y PAGAR</button>
+            <button onclick="iniciarProcesoPago()" class="btn-main-pay">
+                REGISTRAR QUINIELA Y PAGAR
+            </button>
         </footer>
     </div>
+
+    <!-- Scripts de Administración y Lógica -->
     <script src="admin.js"></script>
     <script src="logic.js"></script>
 </body>
