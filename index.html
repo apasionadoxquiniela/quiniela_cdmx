@@ -2,20 +2,42 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiniela CDMX | Premium</title>
+    <title>Quiniela PRO | Global Edition</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Iconos y Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>QUINIELA <span>CDMX</span></h1>
-        <p>Panel de Gestión de Pronósticos</p>
-    </header>
-    <main class="container">
-        <section id="partidos-container"></section>
-        <button onclick="enviarPronosticos()" class="btn-primary">Guardar Pronósticos</button>
-    </main>
-    <script src="admin.js"></script>
-    <script src="logic.js"></script>
+    <nav class="navbar">
+        <div class="logo">QUINIELA <span>CDMX</span></div>
+        <select id="league-selector" onchange="cambiarLiga()">
+            <option value="MEX">Liga MX (México)</option>
+            <option value="ESP">La Liga (España)</option>
+            <option value="ENG">Premier League (Inglaterra)</option>
+            <option value="CL">Champions League</option>
+        </select>
+    </nav>
+
+    <div class="main-grid">
+        <!-- SIMULADOR Y MOMIOS -->
+        <aside class="sidebar">
+            <h3>Simulador de Ganancias</h3>
+            <p>Momios actuales: <span id="current-odds">1.85</span></p>
+            <input type="number" id="apuesta" placeholder="Monto a apostar ($)">
+            <div class="resultado-sim">Posible Ganancia: <strong id="ganancia">$0.00</strong></div>
+        </aside>
+
+        <!-- CARTELERA DE PARTIDOS -->
+        <section class="content">
+            <h2 id="league-title">Próximos Partidos</h2>
+            <div id="partidos-dinamicos">
+                <!-- Aquí la API pondrá los escudos y momios automáticamente -->
+            </div>
+            <button onclick="procesarRegistro()" class="btn-pay">Registrar y Pagar con Tarjeta</button>
+        </section>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="engine.js"></script>
 </body>
 </html>
