@@ -3,30 +3,34 @@
     --gold: #A57C2D;
     --gold-light: #D4AF37;
     --white: #ffffff;
-    --bg: #f0f2f5;
+    --gray: #f4f4f4;
 }
 
-body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); margin: 0; padding: 0; }
-.app-wrapper { max-width: 480px; margin: 0 auto; background: var(--white); min-height: 100vh; padding-bottom: 100px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #e0e0e0; margin: 0; }
+.app-wrapper { max-width: 480px; margin: 0 auto; background: var(--white); min-height: 100vh; padding-bottom: 110px; }
 
 .hero-banner img { width: 100%; display: block; border-bottom: 4px solid var(--gold); }
 
-.simulator-container { padding: 15px; }
-.sim-card { background: var(--navy); color: white; padding: 20px; border-radius: 12px; border-left: 6px solid var(--gold); }
-.sim-body { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
-.sim-body input { background: rgba(255,255,255,0.1); border: 1px solid var(--gold); color: white; padding: 12px; border-radius: 6px; width: 45%; outline: none; }
-.ganancia-text { font-weight: bold; color: var(--gold-light); font-size: 1.1rem; }
+.info-panel { padding: 15px; background: var(--white); }
+.sim-card { background: var(--navy); color: white; padding: 15px; border-radius: 10px; margin-bottom: 15px; }
+.sim-row { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+.sim-row input { width: 45%; padding: 8px; border-radius: 5px; border: 1px solid var(--gold); }
 
-.league-nav { padding: 0 15px 15px; }
-.league-nav select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-weight: bold; background: #fff; cursor: pointer; }
+.league-selector-area label { font-size: 12px; font-weight: bold; color: var(--navy); display: block; margin-bottom: 5px; }
+.league-selector-area select { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-weight: bold; }
 
-.match-box { display: flex; align-items: center; justify-content: space-between; padding: 20px; border-bottom: 1px solid #eee; transition: 0.3s; }
-.team { width: 35%; text-align: center; }
-.team img { width: 45px; height: 45px; object-fit: contain; margin-bottom: 5px; }
-.team div { font-size: 13px; font-weight: bold; color: var(--navy); }
+/* Estilo de los partidos tipo Quiniela */
+.match-card { padding: 15px; border-bottom: 1px solid #eee; }
+.match-teams { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.team { width: 40%; text-align: center; font-size: 13px; font-weight: bold; }
+.team img { width: 40px; height: 40px; object-fit: contain; display: block; margin: 0 auto 5px; }
 
-.score-inputs { display: flex; gap: 8px; align-items: center; }
-.score-inputs input { width: 40px; height: 40px; text-align: center; font-size: 18px; font-weight: bold; border: 2px solid #eee; border-radius: 6px; background: #f9f9f9; }
+.lev-options { display: flex; justify-content: center; gap: 10px; }
+.btn-lev { 
+    background: var(--gray); border: 2px solid #ccc; padding: 10px 20px; 
+    border-radius: 5px; font-weight: 900; cursor: pointer; transition: 0.2s;
+}
+.btn-lev.active { background: var(--gold); color: white; border-color: var(--navy); }
 
-.payment-footer { position: fixed; bottom: 0; width: 100%; max-width: 480px; padding: 20px; background: white; box-shadow: 0 -10px 20px rgba(0,0,0,0.05); text-align: center; box-sizing: border-box; }
-.btn-main-pay { background: var(--navy); color: var(--gold-light); width: 100%; padding: 18px; border: 2px solid var(--gold); border-radius: 30px; font-weight: 900; font-size: 16px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+.payment-footer { position: fixed; bottom: 0; width: 100%; max-width: 480px; padding: 20px; background: white; box-shadow: 0 -5px 15px rgba(0,0,0,0.1); text-align: center; box-sizing: border-box; }
+.btn-main-pay { background: var(--navy); color: var(--gold-light); width: 100%; padding: 15px; border: 2px solid var(--gold); border-radius: 30px; font-weight: bold; font-size: 16px; cursor: pointer; }
