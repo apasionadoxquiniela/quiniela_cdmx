@@ -1,36 +1,50 @@
-function actualizarLiga() {
-    const liga = document.getElementById('liga-selector').value;
-    const container = document.getElementById('contenedor-partidos');
+// Carga los partidos segun la liga seleccionada
+function cargarJornada() {
+    const liga = document.getElementById('selector-liga').value;
+    const container = document.getElementById('jornada-container');
     container.innerHTML = "";
-    
-    LIGAS_MUNDIALES[liga].forEach(p => {
-        const card = document.createElement('div');
-        card.className = 'match-card';
-        card.innerHTML = `
-            <div class="team-col"><img src="${p.imgL}">${p.local}</div>
-            <div class="score-inputs"><input type="number"> - <input type="number"></div>
-            <div class="team-col"><img src="${p.imgV}">${p.visita}</div>
+
+    DB_PARTIDOS[liga].forEach(p => {
+        const div = document.createElement('div');
+        div.className = 'match-box';
+        div.innerHTML = `
+            <div class="team">
+                <img src="${p.imgL}">
+                <div>${p.local}</div>
+            </div>
+            <div class="score-inputs">
+                <input type="number" id="L-${p.id}" placeholder="0">
+                <span>-</span>
+                <input type="number" id="V-${p.id}" placeholder="0">
+            </div>
+            <div class="team">
+                <img src="${p.imgV}">
+                <div>${p.visita}</div>
+            </div>
         `;
-        container.appendChild(card);
+        container.appendChild(div);
     });
 }
 
-async function procesarPago() {
-    const nombre = prompt("¿A nombre de quién registramos la quiniela?");
-    if(!nombre) return;
+// Simulador de ganancias en tiempo real
+document.getElementById('monto-apuesta').addEventListener('input', (e) => {
+    const monto = e.target.value;
+    const momio = 1.95; // Puedes ajustar este valor
+    const ganancia = (monto * momio).toFixed(2);
+    document.getElementById('val-ganancia').innerText = "Ganas: $" + ganancia;
+});
 
-    // 1. Registro automático en Google Sheets (Base de Datos)
-    // El cliente debe poner su URL de Sheet.best aquí
-    const data = { nombre: nombre, fecha: new Date().toLocaleDateString(), estatus: "PAGADO" };
+// Proceso de registro y redireccion a pago
+function iniciarProcesoPago() {
+    const nombre = prompt("Ingresa tu nombre completo para el registro:");
+    if (!nombre) return;
+
+    // Aqui se podria agregar la logica para enviar datos a un Excel (Google Sheets)
+    alert("¡Hola " + nombre + "! Tus pronosticos han sido capturados. Seras redirigido al pago seguro.");
     
-    await fetch('TU_URL_DE_SHEET_BEST_AQUI', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(data)
-    });
-
-    // 2. Redirección al banco (Stripe)
-    window.location.href = "TU_LINK_DE_PAGO_STRIPE_AQUI";
+    // REEMPLAZAR ESTE LINK POR TU LINK DE PAGO DE STRIPE O MERCADO PAGO
+    window.location.href = "TU_LINK_DE_PAGO_AQUI";
 }
 
-document.addEventListener('DOMContentLoaded', actualizarLiga);
+// Inicia el sistema al cargar la pagina
+document.addEventListener('DOMContentLoaded', cargarJornada);
