@@ -2,42 +2,46 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Quiniela PRO | Global Edition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiniela CDMX | Elite Edition</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Iconos y Fuentes -->
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">QUINIELA <span>CDMX</span></div>
-        <select id="league-selector" onchange="cambiarLiga()">
-            <option value="MEX">Liga MX (México)</option>
-            <option value="ESP">La Liga (España)</option>
-            <option value="ENG">Premier League (Inglaterra)</option>
-            <option value="CL">Champions League</option>
-        </select>
-    </nav>
-
-    <div class="main-grid">
-        <!-- SIMULADOR Y MOMIOS -->
-        <aside class="sidebar">
-            <h3>Simulador de Ganancias</h3>
-            <p>Momios actuales: <span id="current-odds">1.85</span></p>
-            <input type="number" id="apuesta" placeholder="Monto a apostar ($)">
-            <div class="resultado-sim">Posible Ganancia: <strong id="ganancia">$0.00</strong></div>
-        </aside>
-
-        <!-- CARTELERA DE PARTIDOS -->
-        <section class="content">
-            <h2 id="league-title">Próximos Partidos</h2>
-            <div id="partidos-dinamicos">
-                <!-- Aquí la API pondrá los escudos y momios automáticamente -->
+    <div class="app-container">
+        <header class="main-header">
+            <div class="logo-area">
+                <img src="https://cdn-icons-png.flaticon.com/512/5323/5323982.png" alt="Logo" class="main-logo">
+                <h1>QUINIELA <span>CDMX</span></h1>
             </div>
-            <button onclick="procesarRegistro()" class="btn-pay">Registrar y Pagar con Tarjeta</button>
-        </section>
-    </div>
+            <select id="liga-selector" onchange="actualizarLiga()">
+                <option value="liga_mx">Liga MX 🇲🇽</option>
+                <option value="premier">Premier League 🏴󠁧󠁢󠁥󠁮󠁧󠁿</option>
+                <option value="laliga">La Liga 🇪🇸</option>
+            </select>
+        </header>
 
-    <script src="config.js"></script>
-    <script src="engine.js"></script>
+        <section class="simulator-card">
+            <h3>Simulador de Ganancia</h3>
+            <div class="sim-grid">
+                <input type="number" id="monto-apuesta" placeholder="¿Cuánto apuestas?">
+                <div class="ganancia-box">Ganas: <span id="resultado-sim">$0</span></div>
+            </div>
+        </section>
+
+        <form id="quiniela-form">
+            <div id="contenedor-partidos">
+                <!-- Los partidos de cualquier liga del mundo se cargan aquí -->
+            </div>
+            
+            <div class="floating-footer">
+                <button type="button" onclick="procesarPago()" class="btn-checkout">
+                    Enviar y Pagar con Tarjeta
+                </button>
+            </div>
+        </form>
+    </div>
+    <script src="admin.js"></script>
+    <script src="logic.js"></script>
 </body>
 </html>
