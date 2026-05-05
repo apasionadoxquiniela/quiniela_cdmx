@@ -1,53 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
-    <!-- Este código coloca el Banner en la parte superior de la App -->
-<header class="hero-banner">
-    <img src="banner_horizontal.png" alt="Quiniela CDMX" style="width: 100%; display: block;">
-</header>
-
-<!-- Este código puede usarse dentro del formulario para mostrar el Escudo -->
-<div class="logo-central" style="text-align: center; padding: 20px;">
-    <img src="logo_principal.png" alt="Escudo Oficial" style="width: 120px;">
-</div>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiniela CDMX | Victoria Segura</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Estilos críticos integrados para asegurar carga limpia */
-        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
-        .app-wrapper { max-width: 480px; margin: 0 auto; background: white; min-height: 100vh; padding-bottom: 80px; }
-        .hero-banner img { width: 100%; display: block; border-bottom: 4px solid #A57C2D; }
-        .simulator-container { padding: 15px; }
-        .sim-card { background: #0a2540; color: white; padding: 15px; border-radius: 8px; border-left: 5px solid #A57C2D; }
-        .sim-body { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
-        .sim-body input { background: rgba(255,255,255,0.1); border: 1px solid #A57C2D; color: white; padding: 8px; border-radius: 4px; width: 40%; }
-        .league-nav { padding: 15px; }
-        .league-nav select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-weight: bold; }
-        .payment-footer { position: fixed; bottom: 0; width: 100%; max-width: 480px; padding: 20px; background: white; box-shadow: 0 -5px 15px rgba(0,0,0,0.05); text-align: center; }
-        .btn-main-pay { background: #0a2540; color: #D4AF37; width: 90%; padding: 15px; border: 2px solid #D4AF37; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 16px; }
-    </style>
 </head>
 <body>
     <div class="app-wrapper">
-        <!-- Logo Principal -->
+        <!-- Banner de Identidad -->
         <header class="hero-banner">
             <img src="banner_horizontal.png" alt="Quiniela CDMX">
         </header>
 
-        <!-- Sección del Simulador -->
+        <!-- Simulador de Ganancias -->
         <section class="simulator-container">
             <div class="sim-card">
-                <h3 style="margin:0; font-size: 14px;">SIMULADOR DE VICTORIA</h3>
+                <h3>SIMULADOR DE VICTORIA</h3>
                 <div class="sim-body">
-                    <input type="number" id="monto-apuesta" placeholder="Monto ($)">
-                    <div id="val-ganancia" style="font-weight:bold; color:#D4AF37;">Ganas: $0.00</div>
+                    <input type="number" id="monto-apuesta" placeholder="¿Cuanto juegas? ($)">
+                    <div id="val-ganancia" class="ganancia-text">Ganas: $0.00</div>
                 </div>
             </div>
         </section>
 
-        <!-- Selector de Ligas sin Emojis (Evita error U+E007F) -->
+        <!-- Selector de Ligas -->
         <div class="league-nav">
             <select id="selector-liga" onchange="cargarJornada()">
                 <option value="liga_mx">LIGA MX - MEXICO</option>
@@ -56,12 +33,12 @@
             </select>
         </div>
 
-        <!-- Contenedor de Partidos Dinámicos -->
+        <!-- Contenedor Dinamico de Partidos -->
         <main id="jornada-container">
-            <!-- Los partidos se cargan desde logic.js -->
+            <!-- Aqui se cargan los partidos desde logic.js -->
         </main>
 
-        <!-- Botón de Pago Flotante -->
+        <!-- Boton Flotante de Registro -->
         <footer class="payment-footer">
             <button onclick="iniciarProcesoPago()" class="btn-main-pay">
                 REGISTRAR Y PAGAR
@@ -69,7 +46,6 @@
         </footer>
     </div>
 
-    <!-- Motores del Sistema -->
     <script src="admin.js"></script>
     <script src="logic.js"></script>
 </body>
