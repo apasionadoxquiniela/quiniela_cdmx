@@ -1,24 +1,185 @@
+/* Paleta de Colores Institucional Quiniela CDMX */
+:root {
+    --navy: #0a2540;      /* Azul Profundo */
+    --gold: #A57C2D;      /* Oro Mate */
+    --gold-light: #D4AF37; /* Oro Brillante */
+    --white: #ffffff;     /* Blanco Puro */
+    --bg-gray: #f0f2f5;   /* Gris de Fondo */
+    --text-dark: #1a1a1a; /* Texto Principal */
+}
+
+/* Configuracion Base */
+body { 
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+    background-color: var(--bg-gray); 
+    margin: 0; 
+    padding: 0; 
+    color: var(--text-dark);
+}
+
+/* Contenedor Principal (Simulacion de App Movil) */
+.app-wrapper { 
+    max-width: 480px; 
+    margin: 0 auto; 
+    background: var(--white); 
+    min-height: 100vh; 
+    padding-bottom: 120px; 
+    box-shadow: 0 0 15px rgba(0,0,0,0.1); 
+}
+
+/* Banner Superior */
+.hero-banner img { 
+    width: 100%; 
+    display: block; 
+    border-bottom: 4px solid var(--gold); 
+}
+
+/* Selectores de Liga y Jornada */
+.selectors-container { 
+    padding: 15px; 
+    background: var(--white); 
+    border-bottom: 1px solid #eee; 
+}
+
+.field { 
+    margin-bottom: 12px; 
+}
+
+.field label { 
+    font-size: 11px; 
+    font-weight: 800; 
+    color: var(--navy); 
+    display: block; 
+    margin-bottom: 5px; 
+    text-transform: uppercase;
+}
+
+.field select { 
+    width: 100%; 
+    padding: 12px; 
+    border-radius: 8px; 
+    border: 1px solid #ddd; 
+    font-weight: bold; 
+    font-size: 14px;
+    background-color: #f9f9f9;
+}
+
+/* Tarjeta de Partido */
+.match-card { 
+    padding: 20px; 
+    border-bottom: 1px solid #f0f0f0; 
+    transition: background 0.3s;
+}
+
+/* Estilo Especial para el Comodin */
 .comodin {
     background: #fffdf2 !important;
-    border: 2px solid #D4AF37 !important;
-    margin-top: 25px;
-    position: relative;
+    border: 2px solid var(--gold-light) !important;
+    margin: 15px;
+    border-radius: 12px;
 }
+
 .tag-comodin {
-    background: #D4AF37;
-    color: #0a2540;
+    background: var(--gold-light);
+    color: var(--navy);
     font-size: 10px;
     font-weight: 900;
     padding: 4px 12px;
     border-radius: 4px;
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
 }
-.vs-badge {
-    background: #0a2540;
-    color: #D4AF37;
-    font-weight: bold;
-    padding: 5px;
-    border-radius: 50%;
-    font-size: 10px;
+
+/* Alineacion de Equipos */
+.match-teams { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 15px; 
+}
+
+.team { 
+    width: 35%; 
+    text-align: center; 
+}
+
+.team img { 
+    width: 50px; 
+    height: 50px; 
+    object-fit: contain; 
+    margin-bottom: 8px; 
+}
+
+.team div { 
+    font-size: 13px; 
+    font-weight: 700; 
+    color: var(--navy); 
+}
+
+.vs-badge { 
+    background: var(--navy); 
+    color: var(--gold-light); 
+    font-weight: 900; 
+    padding: 6px; 
+    border-radius: 50%; 
+    font-size: 10px; 
+}
+
+/* Botones Local - Empate - Visitante */
+.lev-options { 
+    display: flex; 
+    justify-content: center; 
+    gap: 15px; 
+}
+
+.btn-lev { 
+    background: #f8f9fa; 
+    border: 2px solid #ddd; 
+    padding: 12px 25px; 
+    border-radius: 8px; 
+    font-weight: 900; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: 0.2s;
+    color: var(--navy);
+}
+
+.btn-lev.active { 
+    background: var(--gold); 
+    color: var(--white); 
+    border-color: var(--navy); 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Footer de Pago Flotante */
+.payment-footer { 
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
+    max-width: 480px; 
+    padding: 20px; 
+    background: var(--white); 
+    box-shadow: 0 -8px 20px rgba(0,0,0,0.1); 
+    text-align: center; 
+    box-sizing: border-box; 
+}
+
+.btn-main-pay { 
+    background: var(--navy); 
+    color: var(--gold-light); 
+    width: 100%; 
+    padding: 18px; 
+    border: 2px solid var(--gold); 
+    border-radius: 35px; 
+    font-weight: 800; 
+    font-size: 17px; 
+    cursor: pointer; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-main-pay:hover {
+    background: var(--gold);
+    color: var(--navy);
 }
