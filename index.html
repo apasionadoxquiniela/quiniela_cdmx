@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiniela CDMX | Elite</title>
+    <title>Quiniela CDMX | Multi-Liga</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app-wrapper">
         <header class="hero-banner">
-            <img src="banner_horizontal.png" alt="Quiniela CDMX">
+            <img src="banner_horizontal.png" alt="Banner Quiniela">
         </header>
 
-        <section class="selectors-area">
-            <div class="select-group">
-                <label>LIGA:</label>
+        <section class="selectors-container">
+            <div class="field">
+                <label>ELIGE LIGA:</label>
                 <select id="selector-liga" onchange="cargarJornada()">
-                    <option value="liga_mx">LIGA MX</option>
-                    <option value="premier">PREMIER LEAGUE</option>
+                    <option value="liga_mx">LIGA MX 🇲🇽</option>
+                    <option value="premier">PREMIER LEAGUE 🏴󠁧󠁢󠁥󠁮󠁧󠁿</option>
+                    <option value="laliga">LA LIGA 🇪🇸</option>
                 </select>
             </div>
-            <div class="select-group">
-                <label>TIPO DE JORNADA:</label>
+            <div class="field">
+                <label>JORNADA:</label>
                 <select id="selector-tipo" onchange="cargarJornada()">
+                    <option value="media_semana">MEDIA SEMANA (9+1)</option>
                     <option value="fin_semana">FIN DE SEMANA</option>
-                    <option value="media_semana">MEDIA SEMANA</option>
                 </select>
             </div>
         </section>
