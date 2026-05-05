@@ -1,0 +1,7 @@
+:root { --primary: #0f172a; --accent: #b91c1c; --gold: #a57c2d; }
+body { font-family: sans-serif; background: #f1f5f9; margin: 0; text-align: center; }
+header { background: var(--primary); color: white; padding: 40px; border-bottom: 5px solid var(--gold); }
+.container { max-width: 600px; margin: 20px auto; padding: 20px; }
+.partido-card { background: white; margin: 10px 0; padding: 20px; border-radius: 10px; display: flex; justify-content: space-around; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+input { width: 40px; padding: 5px; text-align: center; }
+.btn-primary { background: var(--accent); color: white; padding: 15px 30px; border: none; border-radius: 5px; cursor: pointer; font-size: 18px; }
