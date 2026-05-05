@@ -1,4 +1,4 @@
-let pronosticosUsuario = {};
+let pronosticos = {};
 
 function cargarJornada() {
     const liga = document.getElementById('selector-liga').value;
@@ -6,14 +6,17 @@ function cargarJornada() {
     const container = document.getElementById('jornada-container');
     
     container.innerHTML = "";
-    pronosticosUsuario = {}; 
+    pronosticos = {}; 
 
-    const partidosSeleccionados = DB_PARTIDOS[liga][tipo];
+    const partidos = DB_PARTIDOS[liga][tipo];
 
-    partidosSeleccionados.forEach(p => {
-        const div = document.createElement('div');
-        div.className = 'match-card';
-        div.innerHTML = `
+    partidos.forEach(p => {
+        const esReserva = p.id === "RES";
+        const card = document.createElement('div');
+        card.className = esReserva ? 'match-card reserva' : 'match-card';
+        
+        card.innerHTML = `
+            ${esReserva ? '<div class="reserva-tag">PARTIDO DE RESPALDO (RESERVA)</div>' : ''}
             <div class="match-teams">
                 <div class="team"><img src="${p.imgL}"><div>${p.local}</div></div>
                 <div class="vs-badge">VS</div>
@@ -25,24 +28,24 @@ function cargarJornada() {
                 <button class="btn-lev" onclick="marcar(this, '${p.id}', 'V')">V</button>
             </div>
         `;
-        container.appendChild(div);
+        container.appendChild(card);
     });
 }
 
-function marcar(elemento, partidoId, resultado) {
-    const botones = elemento.parentElement.querySelectorAll('.btn-lev');
-    botones.forEach(btn => btn.classList.remove('active'));
-    elemento.classList.add('active');
-    pronosticosUsuario[partidoId] = resultado;
+function marcar(btn, id, res) {
+    const fila = btn.parentElement.querySelectorAll('.btn-lev');
+    fila.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    pronosticos[id] = res;
 }
 
 function iniciarProcesoPago() {
     const total = document.querySelectorAll('.match-card').length;
-    if (Object.keys(pronosticosUsuario).length < total) {
-        alert("Completa todos los pronósticos antes de continuar.");
+    if (Object.keys(pronosticos).length < total) {
+        alert("Atención: Debes completar los 9 partidos y el de reserva.");
         return;
     }
-    window.location.href = "TU_LINK_DE_PAGO_AQUI";
+    window.location.href = "TU_LINK_DE_PAGO_STRIPE";
 }
 
 document.addEventListener('DOMContentLoaded', cargarJornada);
