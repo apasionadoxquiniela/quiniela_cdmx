@@ -1,4 +1,4 @@
-let pronosticos = {};
+let selecciones = {};
 
 function cargarJornada() {
     const liga = document.getElementById('selector-liga').value;
@@ -6,17 +6,17 @@ function cargarJornada() {
     const container = document.getElementById('jornada-container');
     
     container.innerHTML = "";
-    pronosticos = {}; 
+    selecciones = {}; 
 
     const partidos = DB_PARTIDOS[liga][tipo];
 
     partidos.forEach(p => {
-        const esReserva = p.id === "RES";
-        const card = document.createElement('div');
-        card.className = esReserva ? 'match-card reserva' : 'match-card';
+        const esComodin = p.id === "RES";
+        const div = document.createElement('div');
+        div.className = esComodin ? 'match-card comodin' : 'match-card';
         
-        card.innerHTML = `
-            ${esReserva ? '<div class="reserva-tag">PARTIDO DE RESPALDO (RESERVA)</div>' : ''}
+        div.innerHTML = `
+            ${esComodin ? '<div class="tag-comodin">PARTIDO COMODIN (RESURSO)</div>' : ''}
             <div class="match-teams">
                 <div class="team"><img src="${p.imgL}"><div>${p.local}</div></div>
                 <div class="vs-badge">VS</div>
@@ -28,7 +28,7 @@ function cargarJornada() {
                 <button class="btn-lev" onclick="marcar(this, '${p.id}', 'V')">V</button>
             </div>
         `;
-        container.appendChild(card);
+        container.appendChild(div);
     });
 }
 
@@ -36,16 +36,19 @@ function marcar(btn, id, res) {
     const fila = btn.parentElement.querySelectorAll('.btn-lev');
     fila.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    pronosticos[id] = res;
+    selecciones[id] = res;
 }
 
 function iniciarProcesoPago() {
-    const total = document.querySelectorAll('.match-card').length;
-    if (Object.keys(pronosticos).length < total) {
-        alert("Atención: Debes completar los 9 partidos y el de reserva.");
+    const totalEnPantalla = document.querySelectorAll('.match-card').length;
+    if (Object.keys(selecciones).length < totalEnPantalla) {
+        alert("Atencion: Debes seleccionar un resultado para los 9 partidos y el comodin.");
         return;
     }
-    window.location.href = "TU_LINK_DE_PAGO_STRIPE";
+    const nombre = prompt("Nombre completo para el registro:");
+    if(!nombre) return;
+    
+    window.location.href = "TU_LINK_DE_PAGO_AQUI";
 }
 
 document.addEventListener('DOMContentLoaded', cargarJornada);
