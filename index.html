@@ -5,50 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiniela CDMX | Victoria Segura</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="app-wrapper">
-        <!-- Banner de Identidad -->
         <header class="hero-banner">
-            <img src="banner_horizontal.png" alt="Quiniela CDMX Banner" class="img-fluid">
+            <img src="banner_horizontal.png" alt="Banner" style="width:100%; display:block;">
         </header>
 
-        <!-- Simulador de Apuestas (Mejora Premium) -->
         <section class="simulator-container">
             <div class="sim-card">
-                <h3><span class="dot"></span> SIMULADOR DE VICTORIA</h3>
+                <h3>SIMULADOR DE VICTORIA</h3>
                 <div class="sim-body">
-                    <input type="number" id="monto-apuesta" placeholder="Monto a apostar ($)">
-                    <div class="potential-win">Ganas: <span id="val-ganancia">$0.00</span></div>
+                    <input type="number" id="monto-apuesta" placeholder="Monto ($)">
+                    <div id="val-ganancia" style="font-weight:bold; color:#D4AF37;">Ganas: $0.00</div>
                 </div>
             </div>
         </section>
 
-        <!-- Selector de Ligas Internacionales -->
-        <div class="league-nav">
-            <select id="selector-liga" onchange="cargarJornada()">
+        <div class="league-nav" style="padding:10px;">
+            <select id="selector-liga" onchange="cargarJornada()" style="width:100%; padding:10px;">
                 <option value="liga_mx">🇲🇽 Liga MX</option>
                 <option value="premier">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League</option>
                 <option value="laliga">🇪🇸 La Liga</option>
             </select>
         </div>
 
-        <!-- Cuerpo de la Quiniela (Estilo Registro-1) -->
-        <main class="main-content">
-            <div id="jornada-container">
-                <!-- Los partidos y escudos se generan aquí -->
-            </div>
-        </main>
+        <main id="jornada-container"></main>
 
-        <!-- Footer Flotante de Pago -->
-        <footer class="payment-footer">
-            <button onclick="iniciarProcesoPago()" class="btn-main-pay">
-                REGISTRAR APUESTA Y PAGAR
-            </button>
+        <footer style="position:fixed; bottom:0; width:100%; max-width:480px; padding:20px; background:white;">
+            <button onclick="iniciarProcesoPago()" class="btn-main-pay">REGISTRAR Y PAGAR</button>
         </footer>
     </div>
-
     <script src="admin.js"></script>
     <script src="logic.js"></script>
 </body>
