@@ -3,49 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiniela CDMX | Pronósticos Deportivos</title>
+    <title>Quiniela CDMX | Elite</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app-wrapper">
-        <!-- Logo de Cabecera -->
         <header class="hero-banner">
             <img src="banner_horizontal.png" alt="Quiniela CDMX">
         </header>
 
-        <!-- Sección de Control y Simulador -->
-        <section class="info-panel">
-            <div class="sim-card">
-                <h3>SIMULADOR DE GANANCIA</h3>
-                <div class="sim-row">
-                    <input type="number" id="monto-apuesta" placeholder="¿Cuánto apuestas? ($)">
-                    <div id="val-ganancia">Ganas: $0.00</div>
-                </div>
-            </div>
-            
-            <div class="league-selector-area">
-                <label for="selector-liga">SELECCIONA TU LIGA:</label>
+        <section class="selectors-area">
+            <div class="select-group">
+                <label>LIGA:</label>
                 <select id="selector-liga" onchange="cargarJornada()">
-                    <option value="liga_mx">MEXICO - LIGA MX</option>
-                    <option value="premier">INGLATERRA - PREMIER LEAGUE</option>
-                    <option value="laliga">ESPANA - LA LIGA</option>
+                    <option value="liga_mx">LIGA MX</option>
+                    <option value="premier">PREMIER LEAGUE</option>
+                </select>
+            </div>
+            <div class="select-group">
+                <label>TIPO DE JORNADA:</label>
+                <select id="selector-tipo" onchange="cargarJornada()">
+                    <option value="fin_semana">FIN DE SEMANA</option>
+                    <option value="media_semana">MEDIA SEMANA</option>
                 </select>
             </div>
         </section>
 
-        <!-- Tablero de Pronósticos -->
-        <main id="jornada-container">
-            <!-- Aquí aparecen los partidos con botones L-E-V -->
-        </main>
+        <main id="jornada-container"></main>
 
-        <!-- Botón de Registro y Pago -->
         <footer class="payment-footer">
-            <button onclick="iniciarProcesoPago()" class="btn-main-pay">
-                REGISTRAR QUINIELA Y PAGAR
-            </button>
+            <button onclick="iniciarProcesoPago()" class="btn-main-pay">REGISTRAR Y PAGAR</button>
         </footer>
     </div>
-
     <script src="admin.js"></script>
     <script src="logic.js"></script>
 </body>
