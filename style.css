@@ -1,21 +1,32 @@
-:root { --primary: #1a1a1a; --accent: #D4AF37; --bg: #f0f2f5; --white: #ffffff; }
-body { font-family: 'Montserrat', sans-serif; background: var(--bg); margin: 0; padding-bottom: 100px; }
-.app-container { max-width: 500px; margin: 0 auto; background: var(--white); min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+:root {
+    --navy: #0a2540;
+    --gold: #A57C2D;
+    --gold-light: #D4AF37;
+    --white: #ffffff;
+    --bg: #f0f2f5;
+}
 
-.main-header { background: var(--primary); color: white; padding: 25px; text-align: center; border-bottom: 4px solid var(--accent); }
-.main-logo { width: 50px; margin-bottom: 10px; }
-.logo-area h1 { margin: 0; font-size: 22px; font-weight: 800; }
-.logo-area span { color: var(--accent); }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); margin: 0; padding: 0; }
+.app-wrapper { max-width: 480px; margin: 0 auto; background: var(--white); min-height: 100vh; padding-bottom: 100px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
 
-.simulator-card { background: #2d2d2d; color: white; margin: 15px; padding: 20px; border-radius: 15px; }
-.sim-grid { display: flex; gap: 10px; margin-top: 10px; }
-input { border-radius: 8px; border: 1px solid #ddd; padding: 12px; font-size: 16px; width: 100%; }
+.hero-banner img { width: 100%; display: block; border-bottom: 4px solid var(--gold); }
 
-.match-card { display: flex; align-items: center; justify-content: space-between; padding: 20px; border-bottom: 1px solid #eee; }
-.team-col { width: 35%; text-align: center; font-size: 14px; font-weight: 600; }
-.team-col img { width: 45px; height: 45px; display: block; margin: 0 auto 8px; object-fit: contain; }
-.score-inputs { display: flex; gap: 5px; }
-.score-inputs input { width: 40px; text-align: center; font-weight: bold; background: #f8f9fa; }
+.simulator-container { padding: 15px; }
+.sim-card { background: var(--navy); color: white; padding: 20px; border-radius: 12px; border-left: 6px solid var(--gold); }
+.sim-body { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+.sim-body input { background: rgba(255,255,255,0.1); border: 1px solid var(--gold); color: white; padding: 12px; border-radius: 6px; width: 45%; outline: none; }
+.ganancia-text { font-weight: bold; color: var(--gold-light); font-size: 1.1rem; }
 
-.floating-footer { position: fixed; bottom: 0; width: 100%; max-width: 500px; background: white; padding: 20px; box-shadow: 0 -5px 15px rgba(0,0,0,0.05); }
-.btn-checkout { background: #b91c1c; color: white; width: 100%; padding: 18px; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; font-size: 16px; }
+.league-nav { padding: 0 15px 15px; }
+.league-nav select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-weight: bold; background: #fff; cursor: pointer; }
+
+.match-box { display: flex; align-items: center; justify-content: space-between; padding: 20px; border-bottom: 1px solid #eee; transition: 0.3s; }
+.team { width: 35%; text-align: center; }
+.team img { width: 45px; height: 45px; object-fit: contain; margin-bottom: 5px; }
+.team div { font-size: 13px; font-weight: bold; color: var(--navy); }
+
+.score-inputs { display: flex; gap: 8px; align-items: center; }
+.score-inputs input { width: 40px; height: 40px; text-align: center; font-size: 18px; font-weight: bold; border: 2px solid #eee; border-radius: 6px; background: #f9f9f9; }
+
+.payment-footer { position: fixed; bottom: 0; width: 100%; max-width: 480px; padding: 20px; background: white; box-shadow: 0 -10px 20px rgba(0,0,0,0.05); text-align: center; box-sizing: border-box; }
+.btn-main-pay { background: var(--navy); color: var(--gold-light); width: 100%; padding: 18px; border: 2px solid var(--gold); border-radius: 30px; font-weight: 900; font-size: 16px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
