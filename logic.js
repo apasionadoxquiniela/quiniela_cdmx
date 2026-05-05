@@ -4,23 +4,26 @@ function cargarJornada() {
     const liga = document.getElementById('selector-liga').value;
     const tipo = document.getElementById('selector-tipo').value;
     const container = document.getElementById('jornada-container');
-    
     container.innerHTML = "";
     selecciones = {}; 
 
     const partidos = DB_PARTIDOS[liga][tipo];
 
     partidos.forEach(p => {
+        // BUSCA EL LOGO AUTOMÁTICAMENTE EN LA BASE DE DATOS
+        const imgL = LOGOS_EQUIPOS[p.local] || "logo_principal.png";
+        const imgV = LOGOS_EQUIPOS[p.visita] || "logo_principal.png";
+
         const esComodin = p.id === "RES";
         const div = document.createElement('div');
         div.className = esComodin ? 'match-card comodin' : 'match-card';
         
         div.innerHTML = `
-            ${esComodin ? '<div class="tag-comodin">PARTIDO COMODIN (RESURSO)</div>' : ''}
+            ${esComodin ? '<div class="tag-comodin">PARTIDO COMODIN (RESERVA)</div>' : ''}
             <div class="match-teams">
-                <div class="team"><img src="${p.imgL}"><div>${p.local}</div></div>
+                <div class="team"><img src="${imgL}"><div>${p.local}</div></div>
                 <div class="vs-badge">VS</div>
-                <div class="team"><img src="${p.imgV}"><div>${p.visita}</div></div>
+                <div class="team"><img src="${imgV}"><div>${p.visita}</div></div>
             </div>
             <div class="lev-options">
                 <button class="btn-lev" onclick="marcar(this, '${p.id}', 'L')">L</button>
@@ -40,15 +43,14 @@ function marcar(btn, id, res) {
 }
 
 function iniciarProcesoPago() {
-    const totalEnPantalla = document.querySelectorAll('.match-card').length;
-    if (Object.keys(selecciones).length < totalEnPantalla) {
-        alert("Atencion: Debes seleccionar un resultado para los 9 partidos y el comodin.");
+    const total = document.querySelectorAll('.match-card').length;
+    if (Object.keys(selecciones).length < total) {
+        alert("Atención: Debes completar los 10 pronósticos.");
         return;
     }
     const nombre = prompt("Nombre completo para el registro:");
     if(!nombre) return;
-    
-    window.location.href = "TU_LINK_DE_PAGO_AQUI";
+    window.location.href = "TU_LINK_DE_PAGO_AQUI"; // REEMPLAZA CON TU LINK DE STRIPE
 }
 
 document.addEventListener('DOMContentLoaded', cargarJornada);
