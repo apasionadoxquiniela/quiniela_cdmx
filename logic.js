@@ -10,7 +10,7 @@ function cargarJornada() {
     const partidos = DB_PARTIDOS[liga][tipo];
 
     partidos.forEach(p => {
-        // BUSCA EL LOGO AUTOMÁTICAMENTE EN LA BASE DE DATOS
+        // Busqueda automatica de escudos
         const imgL = LOGOS_EQUIPOS[p.local] || "logo_principal.png";
         const imgV = LOGOS_EQUIPOS[p.visita] || "logo_principal.png";
 
@@ -45,12 +45,10 @@ function marcar(btn, id, res) {
 function iniciarProcesoPago() {
     const total = document.querySelectorAll('.match-card').length;
     if (Object.keys(selecciones).length < total) {
-        alert("Atención: Debes completar los 10 pronósticos.");
+        alert("Atencion: Debes completar todos los pronosticos.");
         return;
     }
-    const nombre = prompt("Nombre completo para el registro:");
-    if(!nombre) return;
-    window.location.href = "TU_LINK_DE_PAGO_AQUI"; // REEMPLAZA CON TU LINK DE STRIPE
+    window.location.href = "TU_LINK_DE_PAGO_AQUI";
 }
 
 document.addEventListener('DOMContentLoaded', cargarJornada);
