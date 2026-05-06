@@ -1,32 +1,29 @@
-:root {
-    --navy: #0a2540;
-    --gold: #A57C2D;
-    --gold-light: #D4AF37;
-    --white: #ffffff;
-    --bg-gray: #f0f2f5;
-}
-
-body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg-gray); margin: 0; padding: 0; }
-.app-wrapper { max-width: 480px; margin: 0 auto; background: var(--white); min-height: 100vh; padding-bottom: 120px; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
-
-.hero-banner img { width: 100%; display: block; border-bottom: 4px solid var(--gold); }
-.selectors-container { padding: 15px; background: var(--white); border-bottom: 1px solid #eee; }
+:root { --navy: #0a2540; --gold: #A57C2D; --white: #fff; --bg: #f0f2f5; }
+body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; }
+.app-wrapper { max-width: 480px; margin: 0 auto; background: var(--white); min-height: 100vh; padding-bottom: 100px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+.hero-banner img { width: 100%; border-bottom: 4px solid var(--gold); }
+.selectors-container { padding: 15px; border-bottom: 1px solid #eee; }
 .field label { font-size: 11px; font-weight: 800; color: var(--navy); display: block; margin-bottom: 5px; }
 .field select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-weight: bold; }
 
 .match-card { padding: 20px; border-bottom: 1px solid #f0f0f0; }
-.comodin { background: #fffdf2 !important; border: 2px solid var(--gold-light) !important; margin: 10px; border-radius: 12px; }
-.tag-comodin { background: var(--gold-light); color: var(--navy); font-size: 10px; font-weight: 900; padding: 4px 12px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+.comodin { background: #fffdf2; border: 2px solid var(--gold); margin: 10px; border-radius: 12px; }
+.tag-comodin { background: var(--gold); color: var(--navy); font-size: 10px; font-weight: 900; padding: 4px 10px; border-radius: 4px; }
 
-.match-teams { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-.team { width: 35%; text-align: center; }
-.team img { width: 50px; height: 50px; object-fit: contain; margin-bottom: 5px; }
-.team div { font-size: 13px; font-weight: bold; color: var(--navy); }
-.vs-badge { background: var(--navy); color: var(--gold-light); font-weight: 900; padding: 6px; border-radius: 50%; font-size: 10px; }
+.match-teams { display: flex; justify-content: space-between; align-items: center; margin: 15px 0; }
+.team { width: 35%; text-align: center; font-size: 13px; font-weight: bold; }
+.team img { width: 50px; height: 50px; object-fit: contain; }
+.vs-badge { background: var(--navy); color: var(--gold); padding: 6px; border-radius: 50%; font-size: 10px; font-weight: bold; }
 
-.lev-options { display: flex; justify-content: center; gap: 15px; }
-.btn-lev { background: #f8f9fa; border: 2px solid #ddd; padding: 10px 20px; border-radius: 8px; font-weight: 900; cursor: pointer; }
+.lev-options { display: flex; justify-content: center; gap: 10px; }
+.btn-lev { border: 2px solid #ddd; padding: 10px 20px; border-radius: 8px; font-weight: 900; cursor: pointer; background: #f8f9fa; }
 .btn-lev.active { background: var(--gold); color: white; border-color: var(--navy); }
 
-.payment-footer { position: fixed; bottom: 0; width: 100%; max-width: 480px; padding: 20px; background: white; box-shadow: 0 -8px 20px rgba(0,0,0,0.1); box-sizing: border-box; }
-.btn-main-pay { background: var(--navy); color: var(--gold-light); width: 100%; padding: 18px; border: 2px solid var(--gold); border-radius: 35px; font-weight: 800; cursor: pointer; }
+.payment-footer { position: fixed; bottom: 0; width: 100%; max-width: 480px; padding: 15px; background: white; box-sizing: border-box; }
+.btn-main-pay { background: var(--navy); color: var(--gold); width: 100%; padding: 18px; border: 2px solid var(--gold); border-radius: 35px; font-weight: 800; cursor: pointer; }
+
+/* Modal de Pago */
+.pago-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: flex; justify-content: center; align-items: center; z-index: 9999; }
+.pago-modal-content { background: white; padding: 25px; border-radius: 15px; width: 320px; text-align: center; }
+.qr-img { width: 200px; height: 200px; margin: 15px 0; border: 1px solid #eee; }
+.btn-whatsapp { background: #25D366; color: white; text-decoration: none; padding: 12px; border-radius: 8px; display: block; font-weight: bold; margin-top: 15px; }
