@@ -18,7 +18,7 @@ const LOGOS_EQUIPOS = {
     "Guadalajara": "https://media.api-sports.io/football/teams/2284.png",
     "Juárez": "https://media.api-sports.io/football/teams/2290.png",
     "Leones Negros": "https://media.api-sports.io/football/teams/2306.png",
-    "León": "https://media.api-sports.io/football/teams/2286.png",
+    "León": "https://www.clubleon.mx/images/logo.png",
     "Mazatlán": "https://media.api-sports.io/football/teams/2279.png",
     "Monterrey": "https://media.api-sports.io/football/teams/2281.png",
     "Mineros de Zacatecas": "https://media.api-sports.io/football/teams/2305.png",
