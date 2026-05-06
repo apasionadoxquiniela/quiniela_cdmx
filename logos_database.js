@@ -1,6 +1,6 @@
 /* 
    BASE DE DATOS UNIVERSAL DE LOGOS - QUINIELA CDMX
-   El sistema detecta el logo basándose en el nombre del equipo.
+   Deteccion automatica por nombre de equipo.
 */
 const LOGOS_EQUIPOS = {
     // LIGA MX
@@ -24,11 +24,11 @@ const LOGOS_EQUIPOS = {
     "Puebla": "https://media.api-sports.io/football/teams/2278.png",
 
     // PREMIER LEAGUE
-    "Man. City": "https://media.api-sports.io/football/teams/50.png",
+    "Man City": "https://media.api-sports.io/football/teams/50.png",
     "Arsenal": "https://media.api-sports.io/football/teams/42.png",
     "Liverpool": "https://media.api-sports.io/football/teams/40.png",
     "Chelsea": "https://media.api-sports.io/football/teams/49.png",
-    "Man. United": "https://media.api-sports.io/football/teams/33.png",
+    "Man United": "https://media.api-sports.io/football/teams/33.png",
 
     // LA LIGA
     "Real Madrid": "https://media.api-sports.io/football/teams/541.png",
